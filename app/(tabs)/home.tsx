@@ -1,14 +1,17 @@
 import { router } from 'expo-router';
 import { Dimensions, ScrollView, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import { COLORS } from '../../constants/theme';
-
+import { Ionicons } from '@expo/vector-icons';
 const { width } = Dimensions.get('window');
+
+type IoniconsName = keyof typeof Ionicons.glyphMap;
 
 type QuickAction = {
     id: string,
     label: string,
     sub: string,
     color: string,
+    icon: IoniconsName ,
     route: '/(tabs)/chat' | '/(tabs)/marketplace' | '/(tabs)/connect' | '/(tabs)/profile';
 
 }
@@ -28,11 +31,11 @@ type FeedPost = {
 
 export default function HomeScreen() {
     const QUICK_ACTIONS: QuickAction[] = [
-        { id: '1', label: 'Chat', sub: '3 new messages', color: '#FFF0E8', route: '/(tabs)/chat' },
-        { id: '2', label: 'Notice board', sub: '2 new posts', color: '#F0F7FF', route: '/(tabs)/marketplace' },
-        { id: '3', label: 'Marketplace', sub: '5 new items', color: '#F0FBF5', route: '/(tabs)/marketplace' },
-        { id: '4', label: 'Connect', sub: '2 new matches', color: '#FFF0F5', route: '/(tabs)/connect' },
-    ];
+        { id: '1', label: 'Chat',         sub: '3 new messages', color: '#FFF0E8', route: '/(tabs)/chat',        icon: 'chatbubble-outline' },
+        { id: '2', label: 'Notice board', sub: '2 new posts',    color: '#F0F7FF', route: '/(tabs)/marketplace', icon: 'newspaper-outline' },
+        { id: '3', label: 'Marketplace',  sub: '5 new items',    color: '#F0FBF5', route: '/(tabs)/marketplace', icon: 'storefront-outline' },
+        { id: '4', label: 'Connect',      sub: '2 new matches',  color: '#FFF0F5', route: '/(tabs)/connect',     icon: 'heart-outline' },
+      ];
     const FEED_POSTS: FeedPost[] = [
         {
             id: '1',
@@ -108,6 +111,8 @@ export default function HomeScreen() {
                                 style={[styles.actionCard, { backgroundColor: action.color.toString() }]}
                                 onPress={() => router.push(action.route)}
                             >
+                                <Ionicons name = {action.icon} size={22} color={COLORS.textMuted} />
+                                
                                 <Text style={styles.actionLabel}>{action.label}</Text>
                                 <Text style={styles.actionSub}>{action.sub}</Text>
 
