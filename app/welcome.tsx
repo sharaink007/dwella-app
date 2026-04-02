@@ -61,7 +61,7 @@ export default function Welcome() {
           style={[styles.primaryBtn, { opacity: name ? 1 : 0.4 }]}
           onPress={() => {
             if (name) {
-              router.push('/home');
+              router.push('/(tabs)/home');
             }
           }}
         >
