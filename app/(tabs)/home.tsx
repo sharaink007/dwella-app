@@ -28,55 +28,55 @@ type FeedPost = {
     avatarBg: string,
     avatarText: string
 }
-
+const QUICK_ACTIONS: QuickAction[] = [
+    { id: '1', label: 'Chat',         sub: '3 new messages', color: '#FFF0E8', route: '/(tabs)/chat',        icon: 'chatbubble-outline' },
+    { id: '2', label: 'Notice board', sub: '2 new posts',    color: '#F0F7FF', route: '/(tabs)/marketplace', icon: 'newspaper-outline' },
+    { id: '3', label: 'Marketplace',  sub: '5 new items',    color: '#F0FBF5', route: '/(tabs)/marketplace', icon: 'storefront-outline' },
+    { id: '4', label: 'Connect',      sub: '2 new matches',  color: '#FFF0F5', route: '/(tabs)/connect',     icon: 'heart-outline' },
+  ];
+const FEED_POSTS: FeedPost[] = [
+    {
+        id: '1',
+        name: 'Sarah R.',
+        floor: 'Level 4',
+        time: '10 min ago',
+        message: 'Anyone lost a set of keys near the mailboxes? Found them this morning!',
+        tag: 'Lost & found',
+        tagColor: '#FFF0E8',
+        tagText: '#993C1D',
+        initials: 'SR',
+        avatarBg: '#FFF0E8',
+        avatarText: '#993C1D',
+    },
+    {
+        id: '2',
+        name: 'Marcus J.',
+        floor: 'Level 7',
+        time: '1 hr ago',
+        message: 'Hosting a rooftop BBQ this Saturday at 5pm — all welcome! Bring a plate.',
+        tag: 'Event',
+        tagColor: '#F0FBF5',
+        tagText: '#085041',
+        initials: 'MJ',
+        avatarBg: '#F0F7FF',
+        avatarText: '#0C447C',
+    },
+    {
+        id: '3',
+        name: 'Priya K.',
+        floor: 'Level 2',
+        time: '2 hrs ago',
+        message: 'Free couch available — good condition, just moved in with my own furniture. DM me!',
+        tag: 'Free stuff',
+        tagColor: '#EEEDFE',
+        tagText: '#3C3489',
+        initials: 'PK',
+        avatarBg: '#EEEDFE',
+        avatarText: '#3C3489',
+    },
+];
 export default function HomeScreen() {
-    const QUICK_ACTIONS: QuickAction[] = [
-        { id: '1', label: 'Chat',         sub: '3 new messages', color: '#FFF0E8', route: '/(tabs)/chat',        icon: 'chatbubble-outline' },
-        { id: '2', label: 'Notice board', sub: '2 new posts',    color: '#F0F7FF', route: '/(tabs)/marketplace', icon: 'newspaper-outline' },
-        { id: '3', label: 'Marketplace',  sub: '5 new items',    color: '#F0FBF5', route: '/(tabs)/marketplace', icon: 'storefront-outline' },
-        { id: '4', label: 'Connect',      sub: '2 new matches',  color: '#FFF0F5', route: '/(tabs)/connect',     icon: 'heart-outline' },
-      ];
-    const FEED_POSTS: FeedPost[] = [
-        {
-            id: '1',
-            name: 'Sarah R.',
-            floor: 'Level 4',
-            time: '10 min ago',
-            message: 'Anyone lost a set of keys near the mailboxes? Found them this morning!',
-            tag: 'Lost & found',
-            tagColor: '#FFF0E8',
-            tagText: '#993C1D',
-            initials: 'SR',
-            avatarBg: '#FFF0E8',
-            avatarText: '#993C1D',
-        },
-        {
-            id: '2',
-            name: 'Marcus J.',
-            floor: 'Level 7',
-            time: '1 hr ago',
-            message: 'Hosting a rooftop BBQ this Saturday at 5pm — all welcome! Bring a plate.',
-            tag: 'Event',
-            tagColor: '#F0FBF5',
-            tagText: '#085041',
-            initials: 'MJ',
-            avatarBg: '#F0F7FF',
-            avatarText: '#0C447C',
-        },
-        {
-            id: '3',
-            name: 'Priya K.',
-            floor: 'Level 2',
-            time: '2 hrs ago',
-            message: 'Free couch available — good condition, just moved in with my own furniture. DM me!',
-            tag: 'Free stuff',
-            tagColor: '#EEEDFE',
-            tagText: '#3C3489',
-            initials: 'PK',
-            avatarBg: '#EEEDFE',
-            avatarText: '#3C3489',
-        },
-    ];
+  
     return (
         <View style={styles.container}>
 
